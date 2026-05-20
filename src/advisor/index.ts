@@ -20,3 +20,12 @@ export type { TierLadderProps } from './TierLadder';
 
 export { BasketTable } from './BasketTable';
 export type { BasketTableProps } from './BasketTable';
+
+export { PerfTable } from './PerfTable';
+export type { PerfTableProps } from './PerfTable';
+
+export { HistoryChart } from './HistoryChart';
+export type { HistoryChartProps } from './HistoryChart';
+
+export { ForwardProjection } from './ForwardProjection';
+export type { ForwardProjectionProps } from './ForwardProjection';
