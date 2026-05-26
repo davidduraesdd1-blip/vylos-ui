@@ -51,7 +51,7 @@
    *    categorical data viz. Reusable across all four apps for cross-app
    *    rollup views. Derived from the production donut chart in the
    *    Tokenization screenshots. ── */
-  --cat-treasuries:    #d4a54c;  /* gold */
+  --cat-treasuries:    #c9963f;  /* gold */
   --cat-credit:        #5b8def;  /* blue */
   --cat-realestate:    #a78bfa;  /* lavender */
   --cat-commodities:   #f59e0b;  /* amber */
@@ -69,7 +69,7 @@
   --regime-crisis:     #ef4444;  /* VIX≥35 CRISIS gate */
 
   /* ── Layer accent (used in composite signal breakdown) ── */
-  --layer-technical:   #22c55e;
+  --layer-technical:   #1aae5b;
   --layer-macro:       #5b8def;
   --layer-sentiment:   #f59e0b;
   --layer-onchain:     #a78bfa;
@@ -140,8 +140,8 @@
   --accent-ink:  #0a0a0f;
 }
 [data-app="polaris-defi"] {
-  --accent:      #1d4ed8;
-  --accent-soft: rgba(29, 78, 216, 0.14);
+  --accent:      #1538a8;
+  --accent-soft: rgba(21, 56, 168, 0.18);
   --accent-ink:  #f8f8fc;
 }
 [data-app="polaris-tokenization"] {
@@ -188,3 +188,18 @@ html, body {
 [data-app="etf-advisor-platform"] h1,
 [data-app="etf-advisor-platform"] h2,
 [data-app="etf-advisor-platform"] h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.015em; }
+
+
+/* ── S8 — global keyboard focus-visible ring ───────────────────────────── */
+:where(button, a, [role="button"], [role="link"], [role="tab"], [role="radio"], summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.row-focus:focus-visible, button[data-row]:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent); }
+
+/* ── S10 — per-app --accent-soft bumped for light-theme contrast ───────── */
+[data-app="polaris-edge"][data-theme="light"]         { --accent-soft: rgba(34, 211, 111, 0.20); }
+[data-app="polaris-defi"][data-theme="light"]         { --accent-soft: rgba(21, 56, 168, 0.16); }
+[data-app="polaris-tokenization"][data-theme="light"] { --accent-soft: rgba(212, 165, 76, 0.22); }
+[data-app="etf-advisor-platform"][data-theme="light"] { --accent-soft: rgba(15, 166, 138, 0.22); }

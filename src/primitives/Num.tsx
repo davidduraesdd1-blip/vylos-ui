@@ -18,7 +18,6 @@ export function Num({ children, size, weight = 500, color, mono = true, style }:
       style={{
         fontFamily: mono ? 'var(--font-mono)' : 'var(--font-ui)',
         fontVariantNumeric: 'tabular-nums',
-        fontFeatureSettings: '"tnum" 1, "ss01" 1',
         fontSize: size,
         fontWeight: weight,
         color: color || 'var(--text-primary)',

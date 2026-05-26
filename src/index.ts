@@ -50,6 +50,11 @@ export type { SidebarProps } from './layout/Sidebar';
 export { APP_CONFIG, APP_ORDER } from './layout/AppConfig';
 export type { AppKey, AppConfig, NavItem, DataAppAttr } from './layout/AppConfig';
 
+// ── Compliance ──────────────────────────────────────
+export { SECDisclaimer } from './compliance/SECDisclaimer';
+export type { SECDisclaimerProps, SECDisclaimerKind } from './compliance/SECDisclaimer';
+export { MissingDisclosure } from './compliance/MissingDisclosure';
+
 // ── Data ───────────────────────────────────────────────────────────────
 export { CATEGORIES, CATEGORY_ORDER } from './data/categories';
 export type { CategoryKey, Category } from './data/categories';
