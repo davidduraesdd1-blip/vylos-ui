@@ -10,7 +10,7 @@ export type GlyphKind =
   | 'chart-line' | 'globe' | 'heart-pulse' | 'cube'
   | 'caret-right' | 'caret-left' | 'caret-down' | 'chevron-right'
   | 'refresh' | 'info' | 'search' | 'home' | 'signal' | 'wallet'
-  | 'bell' | 'sparkle' | 'gear' | 'arrow-right' | 'book';
+  | 'bell' | 'sparkle' | 'gear' | 'arrow-right' | 'book' | 'menu';
 
 export interface GlyphProps {
   kind: GlyphKind | string;
@@ -87,6 +87,7 @@ export function Glyph({ kind, size = 14, color = 'currentColor', title }: GlyphP
       </g>
     ),
     'arrow-right':    <path d="M5 12 H19 M13 6 L19 12 L13 18" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>,
+    'menu':           <path d="M4 7 H20 M4 12 H20 M4 17 H20" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round"/>,
     'book':           <path d="M4 4 H10 C11 4 12 5 12 6 V20 C12 19 11 18 10 18 H4 Z M20 4 H14 C13 4 12 5 12 6 V20 C12 19 13 18 14 18 H20 Z" fill="none" stroke={color} strokeWidth="1.6" strokeLinejoin="round"/>,
   };
   const node = paths[kind];

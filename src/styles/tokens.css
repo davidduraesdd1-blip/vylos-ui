@@ -47,6 +47,10 @@
   --accent-soft: rgba(34, 211, 111, 0.12);
   --accent-ink:  #0a0a0f;
 
+  /* ── E4 — chat bubble (defaults to accent; apps may override for contrast) ── */
+  --chat-bubble-bg:  var(--accent);
+  --chat-bubble-ink: var(--accent-ink);
+
   /* ── Asset-category palette — used in DEFI / Tokenization / Advisor for
    *    categorical data viz. Reusable across all four apps for cross-app
    *    rollup views. Derived from the production donut chart in the
@@ -203,3 +207,6 @@ html, body {
 [data-app="polaris-defi"][data-theme="light"]         { --accent-soft: rgba(21, 56, 168, 0.16); }
 [data-app="polaris-tokenization"][data-theme="light"] { --accent-soft: rgba(212, 165, 76, 0.22); }
 [data-app="etf-advisor-platform"][data-theme="light"] { --accent-soft: rgba(15, 166, 138, 0.22); }
+
+/* ── E4 — advisor chat-bubble ink darkened for light-theme contrast ─────── */
+[data-app="etf-advisor-platform"][data-theme="light"] { --chat-bubble-ink: #021a14; }

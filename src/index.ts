@@ -45,10 +45,22 @@ export type { DataSourceStripProps, DataSource } from './primitives/DataSourceSt
 
 // ── Layout ─────────────────────────────────────────────────────────────
 export { Sidebar } from './layout/Sidebar';
-export type { SidebarProps } from './layout/Sidebar';
+export type { SidebarProps, SidebarSource, SourceStatus, RailMode, AppUrls } from './layout/Sidebar';
 
 export { APP_CONFIG, APP_ORDER } from './layout/AppConfig';
 export type { AppKey, AppConfig, NavItem, DataAppAttr } from './layout/AppConfig';
+
+// S13 — shared screen scaffold
+export { ScreenLayout } from './layout/ScreenLayout';
+export type { ScreenLayoutProps, Density } from './layout/ScreenLayout';
+export { ScreenHeader } from './layout/ScreenHeader';
+export type { ScreenHeaderProps } from './layout/ScreenHeader';
+export { Section } from './layout/Section';
+export type { SectionProps } from './layout/Section';
+export { KPIRail } from './layout/KPIRail';
+export type { KPIRailProps, KPICell } from './layout/KPIRail';
+export { CardSurface } from './layout/CardSurface';
+export type { CardSurfaceProps } from './layout/CardSurface';
 
 // ── Compliance ──────────────────────────────────────
 export { SECDisclaimer } from './compliance/SECDisclaimer';

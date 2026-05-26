@@ -45,7 +45,7 @@ export const APP_CONFIG: Record<AppKey, AppConfig> = {
   },
   defi: {
     name: 'DEFI',
-    subtitle: 'Yield + protocol intelligence',
+    subtitle: 'Yield · protocol intel.',
     accent: '#1d4ed8',
     dataAttr: 'polaris-defi',
     nav: [
