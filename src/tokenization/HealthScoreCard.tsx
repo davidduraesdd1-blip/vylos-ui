@@ -15,6 +15,10 @@ export interface HealthScoreCardProps {
 }
 
 export function HealthScoreCard({ score, grade, components }: HealthScoreCardProps) {
+  const gradeColor =
+    score >= 80 ? 'var(--success)' :
+    score >= 60 ? 'var(--accent)' :
+    score >= 40 ? 'var(--warning)' : 'var(--danger)';
   return (
     <Card pad={24}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
@@ -23,7 +27,7 @@ export function HealthScoreCard({ score, grade, components }: HealthScoreCardPro
             width: 64,
             height: 64,
             borderRadius: 'var(--r-md)',
-            background: `linear-gradient(135deg, ${GOLD}, color-mix(in srgb, ${GOLD} 60%, var(--bg-3)))`,
+            background: `linear-gradient(135deg, ${gradeColor}, color-mix(in srgb, ${gradeColor} 60%, var(--bg-3)))`,
             color: 'var(--bg-0)',
             display: 'flex',
             alignItems: 'center',
@@ -54,7 +58,7 @@ export function HealthScoreCard({ score, grade, components }: HealthScoreCardPro
               style={{
                 width: `${score}%`,
                 height: '100%',
-                background: GOLD,
+                background: gradeColor,
                 transition: 'width 800ms var(--ease-data)',
               }}
             />

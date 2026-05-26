@@ -41,10 +41,10 @@ export const ISSUERS: Issuer[] = [
 export const RISK_METRICS: RiskMetric[] = [
   { k: 'Sharpe',        v: '1.89',  rating: 'excellent',         tone: 'success' },
   { k: 'Sortino',       v: '2.45',  rating: 'excellent',         tone: 'success' },
-  { k: 'Calmar',        v: '0.92',  rating: 'decent',            tone: 'gold' },
+  { k: 'Calmar',        v: '0.92',  rating: 'decent',            tone: 'warning' },
   { k: 'VaR 95%',       v: '−2.4%', rating: 'low loss exposure', tone: 'success' },
   { k: 'CVaR 95%',      v: '−3.8%', rating: 'low loss exposure', tone: 'success' },
-  { k: 'Max drawdown',  v: '−8.7%', rating: 'moderate exposure', tone: 'gold' },
+  { k: 'Max drawdown',  v: '−8.7%', rating: 'moderate exposure', tone: 'warning' },
 ];
 
 export const RISK_TIERS: RiskTier[] = [

@@ -4,7 +4,7 @@
 import type { AdvisorClient, AdvisorTier, BasketHolding, EtfPerformance } from './types';
 import type { DataSource } from '../primitives/DataSourceStrip';
 
-export const TEAL = '#0fa68a';
+export const TEAL = 'var(--accent)'; // A1: theme-driven accent (was #0fa68a)
 
 export const CLIENTS: AdvisorClient[] = [
   { id: 'beatrice', name: 'Beatrice Chen',      persona: 'Retired, risk-averse', aum: '$37,500',  tier: 1, sharpe: 0.02, ytd: '+5.1%',  mdd: '+15.0%',  flag: null,         ceiling: '5%',  advisor: 'D. Duraes' },

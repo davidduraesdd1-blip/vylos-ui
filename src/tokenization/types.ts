@@ -27,7 +27,7 @@ export interface Issuer {
   flag?: boolean;
 }
 
-export type RiskTone = 'success' | 'gold' | 'danger';
+export type RiskTone = 'success' | 'warning' | 'danger' | 'gold';
 
 export interface RiskMetric {
   k: string;

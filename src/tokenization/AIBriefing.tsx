@@ -8,6 +8,7 @@ import { Eyebrow } from '../primitives/Eyebrow';
 import { LiveDot } from '../primitives/LiveDot';
 import { Card } from '../primitives/Card';
 import { GOLD } from './fixtures';
+import { useRelativeTime } from '../hooks/useRelativeTime';
 
 export interface AIBriefingProps {
   regime?: string;
@@ -18,6 +19,8 @@ export interface AIBriefingProps {
   concentrationPct?: string;
   recommendation?: string;
   updatedAgo?: string;
+  /** T14: when provided, renders a live-updating relative time (overrides updatedAgo). */
+  updatedAt?: Date;
 }
 
 export function AIBriefing({
@@ -29,7 +32,10 @@ export function AIBriefing({
   concentrationPct = '22%',
   recommendation = 'rotate 2% from Ondo Treasuries to Midas mTBILL to reduce concentration.',
   updatedAgo = 'updated 4m ago',
+  updatedAt,
 }: AIBriefingProps) {
+  const rel = useRelativeTime(updatedAt);
+  const stamp = updatedAt ? `updated ${rel}` : updatedAgo;
   return (
     <Card
       pad={24}
@@ -53,11 +59,11 @@ export function AIBriefing({
           }}
         >
           <LiveDot color="var(--success)" size={5} />
-          {updatedAgo}
+          {stamp}
         </span>
       </div>
       <p style={{ font: '400 16px/1.55 var(--font-ui)', margin: 0, color: 'var(--text-secondary)' }}>
-        The macro regime is currently <b style={{ color: regimeColor }}>{regime}</b> with tight credit
+        The macro regime is currently <span style={{ color: regimeColor, fontWeight: 600 }}>{regime}</span> with tight credit
         spreads and a soft dollar. Your Tier-3 portfolio yields{' '}
         <Num size={16} weight={600} color={GOLD}>{yieldPct}</Num> with a Sharpe ratio of{' '}
         <Num size={16} weight={600} color="var(--success)">{sharpe}</Num>; the primary risk to watch is{' '}

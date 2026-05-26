@@ -15,6 +15,7 @@ export interface RiskMetricsGridProps {
 
 const TONE_C: Record<RiskTone, string> = {
   success: 'var(--success)',
+  warning: 'var(--warning)',
   gold: GOLD,
   danger: 'var(--danger)',
 };

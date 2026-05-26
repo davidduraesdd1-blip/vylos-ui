@@ -23,13 +23,13 @@ export function RiskTierLadder({ tiers, title = 'Risk tier · 5-tier ladder' }: 
             key={t.n}
             style={{
               display: 'grid',
-              gridTemplateColumns: '36px 1fr auto auto',
+              gridTemplateColumns: '36px minmax(0, 1fr) auto auto',
               gap: 16,
               alignItems: 'center',
               padding: '12px 14px',
               background: t.current ? `color-mix(in srgb, ${GOLD} 12%, var(--bg-2))` : 'var(--bg-2)',
-              border: t.current ? `1px solid ${GOLD}` : '1px solid transparent',
-              borderLeft: t.current ? `4px solid ${GOLD}` : '4px solid transparent',
+              border: `1px solid ${t.current ? GOLD : 'transparent'}`,
+              boxShadow: t.current ? `inset 4px 0 0 ${GOLD}` : 'none',
               borderRadius: 'var(--r-md)',
             }}
           >

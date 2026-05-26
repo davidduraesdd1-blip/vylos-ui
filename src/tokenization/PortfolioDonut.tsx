@@ -5,11 +5,35 @@ import * as React from 'react';
 import type { AllocationEntry } from './types';
 import { GOLD } from './fixtures';
 
+export type CategoryGranularity = 'fine' | 'coarse';
+
 export interface PortfolioDonutProps {
   size?: number;
   total?: string;
   yieldLabel?: string;
   allocation: AllocationEntry[];
+  /** T15: 'coarse' collapses the 10 fine categories into 4 buckets (Beginner). */
+  categoryGranularity?: CategoryGranularity;
+}
+
+// Fine category key -> coarse bucket key (bucket key must be a real --cat-* token).
+const COARSE_MAP: Record<string, string> = {
+  treasuries: 'treasuries',
+  credit: 'credit',
+  realestate: 'realestate', commodities: 'realestate', infrastructure: 'realestate',
+  defi: 'defi', equities: 'defi', tokeq: 'defi', carbon: 'defi', tradefin: 'defi',
+};
+
+function coarsen(alloc: AllocationEntry[]): AllocationEntry[] {
+  const acc: Record<string, number> = {};
+  for (const a of alloc) {
+    const k = COARSE_MAP[a.cat] || a.cat;
+    acc[k] = (acc[k] || 0) + a.pct;
+  }
+  const order = ['treasuries', 'credit', 'realestate', 'defi'];
+  return Object.entries(acc)
+    .map(([cat, pct]) => ({ cat, pct } as AllocationEntry))
+    .sort((x, y) => order.indexOf(x.cat) - order.indexOf(y.cat));
 }
 
 export function PortfolioDonut({
@@ -17,7 +41,9 @@ export function PortfolioDonut({
   total = '$10.0M',
   yieldLabel = '+7.83% yield',
   allocation,
+  categoryGranularity = 'fine',
 }: PortfolioDonutProps) {
+  const slices = categoryGranularity === 'coarse' ? coarsen(allocation) : allocation;
   const cx = size / 2;
   const cy = size / 2;
   const r = size * 0.38;
@@ -27,7 +53,7 @@ export function PortfolioDonut({
   return (
     <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size}>
       <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--bg-3)" strokeWidth={sw} />
-      {allocation.map((a) => {
+      {slices.map((a) => {
         const len = (a.pct / 100) * C;
         const offset = -cum;
         cum += len;

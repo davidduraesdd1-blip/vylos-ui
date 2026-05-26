@@ -71,6 +71,14 @@ export { MissingDisclosure } from './compliance/MissingDisclosure';
 export { EmptyHairline, RowSkeleton, ChartSkeleton, DocStatusPill } from './primitives/feedback';
 export type { EmptyHairlineProps, RowSkeletonProps, ChartSkeletonProps, DocStatusPillProps, DocStatus } from './primitives/feedback';
 
+// SignalChipGroup (E2/A7) — note: its local Verdict type is NOT re-exported to
+// avoid colliding with the Verdict exported from ./data/regime below.
+export { SignalChipGroup } from './primitives/SignalChipGroup';
+export type { SignalChipGroupProps } from './primitives/SignalChipGroup';
+
+// Hooks
+export { useRelativeTime } from './hooks/useRelativeTime';
+
 // ── Data ───────────────────────────────────────────────────────────────
 export { CATEGORIES, CATEGORY_ORDER } from './data/categories';
 export type { CategoryKey, Category } from './data/categories';

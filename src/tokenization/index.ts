@@ -14,7 +14,7 @@ export type {
 } from './types';
 
 export { PortfolioDonut } from './PortfolioDonut';
-export type { PortfolioDonutProps } from './PortfolioDonut';
+export type { PortfolioDonutProps, CategoryGranularity } from './PortfolioDonut';
 
 export { AIBriefing } from './AIBriefing';
 export type { AIBriefingProps } from './AIBriefing';

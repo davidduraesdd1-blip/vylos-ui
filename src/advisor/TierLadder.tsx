@@ -11,7 +11,7 @@ export interface TierLadderProps {
 
 export function TierLadder({ active, onChange }: TierLadderProps) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, minmax(0, 1fr))', gap: 10 }}>
       {TIERS.map((t) => {
         const isA = t.n === active;
         return (
