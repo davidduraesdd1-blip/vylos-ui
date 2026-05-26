@@ -55,6 +55,10 @@ export { SECDisclaimer } from './compliance/SECDisclaimer';
 export type { SECDisclaimerProps, SECDisclaimerKind } from './compliance/SECDisclaimer';
 export { MissingDisclosure } from './compliance/MissingDisclosure';
 
+// ── Feedback / empty / loading (S5) ───────────────────
+export { EmptyHairline, RowSkeleton, ChartSkeleton, DocStatusPill } from './primitives/feedback';
+export type { EmptyHairlineProps, RowSkeletonProps, ChartSkeletonProps, DocStatusPillProps, DocStatus } from './primitives/feedback';
+
 // ── Data ───────────────────────────────────────────────────────────────
 export { CATEGORIES, CATEGORY_ORDER } from './data/categories';
 export type { CategoryKey, Category } from './data/categories';

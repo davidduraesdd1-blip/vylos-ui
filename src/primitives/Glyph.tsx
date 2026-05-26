@@ -16,9 +16,11 @@ export interface GlyphProps {
   kind: GlyphKind | string;
   size?: number;
   color?: string;
+  /** When set, the icon is meaningful: emits <title> + role=img. Default: decorative (aria-hidden). */
+  title?: string;
 }
 
-export function Glyph({ kind, size = 14, color = 'currentColor' }: GlyphProps) {
+export function Glyph({ kind, size = 14, color = 'currentColor', title }: GlyphProps) {
   const paths: Record<string, React.ReactNode> = {
     'triangle-up':    <path d="M12 4 L20.5 19 L3.5 19 Z" fill={color}/>,
     'triangle-down':  <path d="M12 20 L20.5 5 L3.5 5 Z" fill={color}/>,
@@ -90,7 +92,8 @@ export function Glyph({ kind, size = 14, color = 'currentColor' }: GlyphProps) {
   const node = paths[kind];
   if (!node) return null;
   return (
-    <svg viewBox="0 0 24 24" width={size} height={size} fill="none" style={{ flexShrink: 0 }}>
+    <svg viewBox="0 0 24 24" width={size} height={size} fill="none" style={{ flexShrink: 0 }} role={title ? 'img' : undefined} aria-hidden={title ? undefined : true}>
+      {title ? <title>{title}</title> : null}
       {node}
     </svg>
   );

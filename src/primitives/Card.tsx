@@ -8,6 +8,7 @@ export interface CardProps {
   pad?: string | number;
   radius?: string | number;
   accent?: string;
+  emphasis?: 'brand' | 'active';
   style?: React.CSSProperties;
   onClick?: () => void;
   interactive?: boolean;
@@ -18,6 +19,7 @@ export function Card({
   pad = 'var(--card-pad)',
   radius = 'var(--card-radius)',
   accent,
+  emphasis,
   style,
   onClick,
   interactive,
@@ -28,7 +30,12 @@ export function Card({
       style={{
         background: 'var(--bg-1)',
         border: '1px solid var(--border)',
-        borderTop: accent ? `2px solid ${accent}` : '1px solid var(--border)',
+        borderTop: accent
+          ? `2px solid ${accent}`
+          : emphasis === 'brand'
+          ? '2px solid var(--accent)'
+          : '1px solid var(--border)',
+        boxShadow: emphasis === 'active' ? 'inset 4px 0 0 var(--accent)' : undefined,
         borderRadius: radius,
         padding: pad,
         cursor: onClick ? 'pointer' : 'default',
