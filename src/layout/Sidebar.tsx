@@ -78,15 +78,17 @@ function useRailMode(force?: RailMode): RailMode {
   return mode;
 }
 
-function statusCaption(sources?: SidebarSource[], fallback?: string): { text: string; color: string } {
+function statusCaption(sources?: SidebarSource[], fallback?: string): { text: string; status: SourceStatus } {
   if (sources && sources.length) {
     const total = sources.length;
     const live = sources.filter((s) => s.status === 'live').length;
     const down = sources.filter((s) => s.status === 'down').length;
-    const color = live === total ? 'var(--success)' : down === total ? 'var(--danger)' : 'var(--warning)';
-    return { text: `Live · ${live}/${total} sources`, color };
+    // 'cached' = partial/mixed (amber). LiveDot renders this as a shape glyph so the
+    // health survives a collapsed sidebar where the caption text is hidden (§8).
+    const status: SourceStatus = live === total ? 'live' : down === total ? 'down' : 'cached';
+    return { text: `Live · ${live}/${total} sources`, status };
   }
-  return { text: fallback ?? 'Live · sources', color: 'var(--success)' };
+  return { text: fallback ?? 'Live · sources', status: 'live' };
 }
 
 export function Sidebar(props: SidebarProps) {
@@ -100,7 +102,7 @@ export function Sidebar(props: SidebarProps) {
   const cfg = APP_CONFIG[app];
   const Link = linkComponent;
   const openGlossary = onOpenGlossary || onGlossary;
-  const { text: liveText, color: liveColor } = statusCaption(sources, liveStatus);
+  const { text: liveText, status: liveDotStatus } = statusCaption(sources, liveStatus);
 
   // close the drawer whenever we leave off-canvas mode
   React.useEffect(() => { if (mode !== 'offcanvas') setDrawerOpen(false); }, [mode]);
@@ -165,7 +167,7 @@ export function Sidebar(props: SidebarProps) {
         title={collapsed ? liveText : undefined}
         aria-label={liveText}
       >
-        <LiveDot color={liveColor} size={6} />
+        <LiveDot status={liveDotStatus} size={6} />
         {!collapsed && <span>{liveText}</span>}
       </div>
 
