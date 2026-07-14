@@ -5,9 +5,18 @@
 
 ## Token budget — stay inside the 5-hour window (standing rule, every project)
 
-**The goal is availability, not frugality.** Never exhaust the 5-hour usage window — being useful all
-day beats being maximally thorough once. Getting blocked is the only failure mode that matters. Watch
-the rolling **weekly** total too, not just the block.
+**The goal is availability, not frugality — and availability means never blocked AND never idle.**
+Never exhaust the 5-hour usage window; being useful all day beats being maximally thorough once. But
+unused capacity **expires worthless** at the block reset — it does not roll over. A window that ends
+with budget left over is a window that was wasted, not saved. Downing tools at 85% fails the goal
+exactly as badly as burning out at 150%. Watch the rolling **weekly** total too, not just the block.
+
+**Throttling means working SMALLER, never working LESS OFTEN. Do not stop.** A budget rail changes
+*how* work is done (cheaper), never *whether* it happens. The rails are self-imposed pacing targets
+calibrated from observed history — **not** the server's real cap, which is unpublished and unreadable
+from inside a session. The only thing that legitimately halts work is a **real server throttle**, not
+a percentage. As of 2026-07-14 no throttle has ever been observed: blocks of 7.43M → 11.71M → 11.93M
+each survived un-throttled, so every rail below is inference, not fact.
 
 **The measured fact that drives every rule below:** in a real heavy block, ~94% of tokens consumed were
 **input + cache-writes**, not output (output was 6%). Context is re-sent and re-cached every turn, so
@@ -25,13 +34,24 @@ Rules, in order of measured impact:
    Standing permission; never ask. But throttle their **input** (`--stat`/grep first, full material only
    where warranted) and put mechanical work on `sonnet`/`haiku`, reserving `opus` for judgment.
 4. **Prefer a fresh session over a bloated one.** Accumulated context is the biggest multiplier.
-   Checkpoint state to a file at natural boundaries and start clean.
+   Checkpoint state to a file at natural boundaries and start clean. This is an argument about *context
+   bloat*, which is **separate** from budget — never smuggle it in as a reason to stop working.
 
-**Thresholds** — a `[token-budget]` line is injected each turn on David's machine; obey it:
+**Thresholds** — a `[token-budget]` line is injected each turn on David's machine; obey it. These are
+the exact labels it prints, and none of them mean stop:
 - **OK (<60%)** — work normally.
-- **CAUTION (≥60%)** — throttle now (batch, filter harder, delegate bulk reads) and say so out loud.
-- **CRITICAL (≥85%)** — stop expanding scope, checkpoint, recommend a fresh session. Never silently
-  push through a red budget to "just finish" — that is exactly how the window gets burned.
+- **THROTTLE (≥60%)** — throttle the *shape* of the work, not the amount: batch aggressively, filter
+  harder at the source, delegate bulk reads, stop exploratory probing. Say so out loud. **Keep going.**
+- **CHEAP-MODE (≥85% of the block)** — keep working, on the cheapest viable path. Checkpoint state to
+  disk *as you go* so nothing is lost if the window does close. Don't start a new **large-scope** thing
+  without asking (see below) — but absolutely continue the current work, and take on new *small* work.
+  **Do not stop. Do not "checkpoint and wait."**
+- **WEEK-TIGHT (≥85% of the rolling 7d)** — *this* is the rail that actually protects multi-day
+  availability, so it outranks the block rail: the weekly total is what a couple of hours' wait cannot
+  recover. Go genuinely conservative — cheaper models, fewer turns. Still not a stop.
+
+**If a rail is exceeded and no throttle occurs, that is DATA, not an emergency.** It means the rail is
+too low. Say so, raise `blockBudget` toward the observed-survivable figure, and carry on.
 
 **Ask before the window-killers:** multi-agent Workflows, `ultracode`, fan-outs beyond ~3 agents,
 whole-repo sweeps, exhaustive audits. State the projected cost and let David decide knowingly.
