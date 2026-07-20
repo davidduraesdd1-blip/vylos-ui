@@ -1,5 +1,5 @@
 // polaris-ui/src/layout/Sidebar.tsx
-// Desktop + responsive sidebar — used by all 4 Polaris apps. Framework-agnostic:
+// Desktop + responsive sidebar — used by all 4 VYLOS apps. Framework-agnostic:
 // emits onNav callback, optional `linkComponent` prop lets the host wire Next.js
 // <Link> for cross-app navigation when needed.
 //
@@ -182,7 +182,7 @@ export function Sidebar(props: SidebarProps) {
 
           {/* Cross-app switcher */}
           <div style={{ marginTop: 16, paddingTop: 16, borderTop: '1px solid var(--border)' }}>
-            <Eyebrow style={{ marginBottom: 8 }}>Polaris family</Eyebrow>
+            <Eyebrow style={{ marginBottom: 8 }}>VYLOS family</Eyebrow>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               {/* Family rollup link — only when a family URL is configured */}
               {familyHref && (() => {
@@ -195,7 +195,7 @@ export function Sidebar(props: SidebarProps) {
                 const fInner = (
                   <>
                     <RegimeOrbit size={14} pulse={false} />
-                    <span>All Polaris <span style={{ color: 'var(--text-primary)' }}>· family rollup</span></span>
+                    <span>All VYLOS <span style={{ color: 'var(--text-primary)' }}>· family rollup</span></span>
                     <Glyph kind="caret-right" size={12} color="var(--text-muted)" />
                   </>
                 );
@@ -214,7 +214,7 @@ export function Sidebar(props: SidebarProps) {
                 const lInner = (
                   <>
                     <span style={{ width: 6, height: 6, borderRadius: '50%', background: c.accent, flexShrink: 0 }} />
-                    <span>Polaris <span style={{ color: 'var(--text-secondary)' }}>{c.name}</span></span>
+                    <span>VYLOS <span style={{ color: 'var(--text-secondary)' }}>{c.name}</span></span>
                     <Glyph kind="caret-right" size={12} color="var(--text-muted)" />
                   </>
                 );

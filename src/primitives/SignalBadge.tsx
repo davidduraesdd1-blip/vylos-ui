@@ -1,5 +1,5 @@
 // polaris-ui/src/primitives/SignalBadge.tsx
-// BUY / HOLD / SELL pill with Polaris custom glyphs.
+// BUY / HOLD / SELL pill with VYLOS custom glyphs.
 
 import * as React from 'react';
 import { Glyph } from './Glyph';

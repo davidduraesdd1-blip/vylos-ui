@@ -1,5 +1,5 @@
 // polaris-ui/src/edge/MarketsHome.tsx
-// Top-level "Markets" screen for Polaris Edge.
+// Top-level "Markets" screen for VYLOS Signal.
 // Composes shared primitives + Edge components into the showpiece page.
 
 import * as React from 'react';

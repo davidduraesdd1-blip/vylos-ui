@@ -1,7 +1,7 @@
 /* ===========================================================================
  * polaris-app/tokens.css
  *
- * Single source of truth for design tokens in the FRESH Polaris build.
+ * Single source of truth for design tokens in the FRESH VYLOS build.
  * Mirrors the locked production values from ui/design_system.py + extends
  * with category palette, reader-level tokens, and additional component
  * tokens not in the original Python module.

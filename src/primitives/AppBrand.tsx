@@ -1,5 +1,5 @@
 // polaris-ui/src/primitives/AppBrand.tsx
-// "Polaris [App]" wordmark + mini RegimeOrbit + optional subtitle.
+// "VYLOS [App]" wordmark + mini RegimeOrbit + optional subtitle.
 
 import * as React from 'react';
 import { RegimeOrbit } from './RegimeOrbit';
@@ -40,7 +40,7 @@ export function AppBrand({
             color: 'var(--text-primary)',
           }}
         >
-          Polaris <span style={{ color: accent || 'var(--accent)', fontWeight: 400 }}>{app}</span>
+          VYLOS <span style={{ color: accent || 'var(--accent)', fontWeight: 400 }}>{app}</span>
         </div>
         {subtitle && (
           <div

@@ -1,5 +1,5 @@
 // polaris-ui/src/edge/CompositeSignalHero.tsx
-// THE hero element of Polaris Edge. Every other Edge screen is built around this.
+// THE hero element of VYLOS Signal. Every other Edge screen is built around this.
 // The 4-layer composite breakdown made visible.
 
 import * as React from 'react';
