@@ -1,6 +1,6 @@
 // polaris-ui/src/layout/AppConfig.ts
 // Per-app navigation, accent, and data-attribute config.
-// Single source of truth for what appears in the sidebar for each Polaris app.
+// Single source of truth for what appears in the sidebar for each VYLOS app.
 
 export type AppKey = 'edge' | 'defi' | 'tokenization' | 'advisor';
 export type DataAppAttr =

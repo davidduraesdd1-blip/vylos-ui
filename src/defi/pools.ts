@@ -1,5 +1,5 @@
 // polaris-ui/src/defi/pools.ts
-// Sample pool fixtures + market cycle for Polaris DEFI Dashboard.
+// Sample pool fixtures + market cycle for VYLOS Yield Dashboard.
 
 import type { Pool, MarketCycle } from './types';
 import type { DataSource } from '../primitives/DataSourceStrip';

@@ -1,12 +1,12 @@
 # polaris-ui
 
-Single-source-of-truth design-system package for all 4 Polaris web apps:
+Single-source-of-truth design-system package for all 4 VYLOS web apps:
 
 | App | Path | data-app attribute |
 |---|---|---|
-| Polaris Edge | `01_Polaris Apps/Polaris Edge/web` | `polaris-edge` |
-| Polaris DEFI | `01_Polaris Apps/Polaris DEFI/web` | `polaris-defi` |
-| Polaris Tokenization | `01_Polaris Apps/Polaris Tokenization/web` | `polaris-tokenization` |
+| VYLOS Signal | `01_Polaris Apps/VYLOS Signal/web` | `polaris-edge` |
+| VYLOS Yield | `01_Polaris Apps/VYLOS Yield/web` | `polaris-defi` |
+| VYLOS Ground | `01_Polaris Apps/VYLOS Ground/web` | `polaris-tokenization` |
 | ETF Advisor | `01_Polaris Apps/etf-advisor-platform/web` | `etf-advisor-platform` |
 
 Lives at `_System/common/polaris-ui/`. Each web/ app imports via TypeScript path alias
@@ -36,14 +36,14 @@ src/
 │   ├── Eyebrow.tsx
 │   ├── LiveDot.tsx
 │   ├── Tooltip.tsx           ← wraps glossary terms
-│   ├── AppBrand.tsx          ← Polaris + sub-app name + mini orbit
+│   ├── AppBrand.tsx          ← VYLOS + sub-app name + mini orbit
 │   └── DataSourceStrip.tsx
 ├── layout/
 │   ├── AppConfig.ts          ← per-app nav + accent map
 │   └── Sidebar.tsx           ← desktop sidebar
 ├── edge/                     ← Polaris Edge-specific components
-├── defi/                     ← Polaris DEFI components (design + richer originals)
-├── tokenization/             ← Polaris Tokenization components (design + richer originals)
+├── defi/                     ← VYLOS Yield components (design + richer originals)
+├── tokenization/             ← VYLOS Ground components (design + richer originals)
 └── advisor/                  ← ETF Advisor components
 ```
 

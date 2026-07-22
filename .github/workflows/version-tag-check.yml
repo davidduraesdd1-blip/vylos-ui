@@ -1,0 +1,34 @@
+name: Version-tag drift check
+
+# MORNING-REVIEW ASK 2026-07-21 (polaris-ui): with git-tag-pinned consumers,
+# an un-cut release (package.json version bumped, no matching vX.Y.Z tag) is
+# invisible — consumers can never adopt it. Fail CI when version and tags
+# drift so the release gets cut (or the bump reverted) same-day.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # need all tags
+      - name: package.json version must have a matching git tag
+        run: |
+          set -euo pipefail
+          v="v$(python3 -c "import json;print(json.load(open('package.json'))['version'])")"
+          if git tag -l | grep -qx "$v"; then
+            echo "OK: $v tag exists."
+          elif [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
+            # On PRs the tag may legitimately not exist YET (version bump in
+            # review) — warn, don't fail; the push-to-main run enforces.
+            echo "::warning::package.json is $v but no matching tag (cut it on merge)."
+          else
+            echo "::error::package.json is $v but no matching git tag — cut the release tag or revert the bump."
+            exit 1
+          fi

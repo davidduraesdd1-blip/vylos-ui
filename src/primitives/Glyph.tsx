@@ -1,6 +1,6 @@
 // polaris-ui/src/primitives/Glyph.tsx
 // Inline-SVG icon library. Ported verbatim from design handoff — these glyphs
-// are part of the Polaris visual identity, not interchangeable with lucide-react.
+// are part of the VYLOS visual identity, not interchangeable with lucide-react.
 
 import * as React from 'react';
 

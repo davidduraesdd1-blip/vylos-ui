@@ -1,5 +1,5 @@
 // polaris-ui/src/tokenization/fixtures.ts
-// Sample RWA portfolio fixtures matching Polaris Tokenization screens.
+// Sample RWA portfolio fixtures matching VYLOS Ground screens.
 
 import type { AllocationEntry, Holding, Issuer, RiskMetric, RiskTier, RwaMarket } from './types';
 import type { DataSource } from '../primitives/DataSourceStrip';
