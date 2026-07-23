@@ -1,6 +1,6 @@
 {
   "name": "polaris-ui",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "VYLOS design-system foundation: shared tokens, primitives, data, and per-app components used by all 4 VYLOS web apps (Edge, DEFI, Tokenization, ETF Advisor).",
   "private": true,
   "type": "module",
@@ -10,9 +10,6 @@
   "exports": {
     ".": "./src/index.ts",
     "./styles/tokens.css": "./src/styles/tokens.css",
-    "./edge": "./src/edge/index.ts",
-    "./defi": "./src/defi/index.ts",
-    "./tokenization": "./src/tokenization/index.ts",
     "./advisor": "./src/advisor/index.ts"
   },
   "files": [
