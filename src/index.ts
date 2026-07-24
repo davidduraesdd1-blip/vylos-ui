@@ -1,12 +1,14 @@
 // PRUNED 2026-07-22 (David-approved dead-export audit): the public API now
-// exports ONLY what the three consumer apps import (10 components + their
+// exports ONLY what the three consumer apps import (9 components + their
 // prop types + glossary). ~45 zero-consumer export lines and the entire
 // defi/edge/tokenization showcase subpackages were removed (git history has
 // them). advisor/ stays: etf-advisor imports type AdvisorClient via subpath.
 // polaris-ui/src/index.ts
-// Barrel re-exports for the entire package. Apps can import either
-// from the root ("import { Card } from 'polaris-ui'") or from specific
-// sub-paths ("import { Card } from 'polaris-ui/primitives/Card'").
+// Barrel re-exports for the package's public surface. Apps import from the
+// root ("import { Card } from 'polaris-ui'"); the "exports" map in
+// package.json only exposes ".", "./styles/tokens.css", and "./advisor" —
+// there is no general deep-subpath access (e.g. 'polaris-ui/primitives/Card'
+// does not resolve).
 
 // ── Primitives ─────────────────────────────────────────────────────────
 export { Num } from './primitives/Num';

@@ -19,11 +19,11 @@ export interface RegimeOrbitProps {
   halo?: boolean;
 }
 
-const STYLE_ID = 'polaris-orbit-keyframes';
+const STYLE_ID = 'vylos-orbit-keyframes';
 const KEYFRAMES = `
-@keyframes polaris-orbit-ring { 0%,100% { stroke-opacity: 0.42; } 50% { stroke-opacity: 0.88; } }
-@keyframes polaris-orbit-tick { 0%,100% { filter: drop-shadow(0 0 0 var(--orbit-accent)); } 50% { filter: drop-shadow(0 0 6px var(--orbit-accent)); } }
-@keyframes polaris-orbit-halo { 0%,100% { opacity: 0.18; transform: scale(1); } 50% { opacity: 0.32; transform: scale(1.06); } }
+@keyframes vylos-orbit-ring { 0%,100% { stroke-opacity: 0.42; } 50% { stroke-opacity: 0.88; } }
+@keyframes vylos-orbit-tick { 0%,100% { filter: drop-shadow(0 0 0 var(--orbit-accent)); } 50% { filter: drop-shadow(0 0 6px var(--orbit-accent)); } }
+@keyframes vylos-orbit-halo { 0%,100% { opacity: 0.18; transform: scale(1); } 50% { opacity: 0.32; transform: scale(1.06); } }
 `;
 
 function useOrbitKeyframes() {
@@ -65,14 +65,14 @@ export function RegimeOrbit({
         <circle
           cx="32" cy="32" r="30" fill="none" stroke={accent} strokeWidth="0.5"
           style={{
-            animation: pulse ? 'polaris-orbit-halo 2400ms cubic-bezier(0.45,0,0.55,1) infinite' : 'none',
+            animation: pulse ? 'vylos-orbit-halo 2400ms cubic-bezier(0.45,0,0.55,1) infinite' : 'none',
             transformOrigin: '32px 32px',
           }}
         />
       )}
       <circle
         cx="32" cy="32" r="22" strokeWidth="1.5" strokeOpacity="0.42"
-        style={{ animation: pulse ? 'polaris-orbit-ring 2400ms cubic-bezier(0.45,0,0.55,1) infinite' : 'none' }}
+        style={{ animation: pulse ? 'vylos-orbit-ring 2400ms cubic-bezier(0.45,0,0.55,1) infinite' : 'none' }}
       />
       {(Object.entries(ticks) as [OrbitTick, typeof ticks.N][]).map(([k, l]) => {
         const isA = k === active;
@@ -84,7 +84,7 @@ export function RegimeOrbit({
             strokeOpacity={isA ? 1 : 0.55}
             strokeWidth={isA ? 2.5 : 2}
             strokeLinecap="round"
-            style={isA && pulse ? { animation: 'polaris-orbit-tick 2400ms cubic-bezier(0.45,0,0.55,1) infinite' } : undefined}
+            style={isA && pulse ? { animation: 'vylos-orbit-tick 2400ms cubic-bezier(0.45,0,0.55,1) infinite' } : undefined}
           />
         );
       })}
