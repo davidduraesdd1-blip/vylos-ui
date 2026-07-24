@@ -56,7 +56,7 @@ export function ReaderLevel({ value, onChange, size = 'md', layout = 'segmented'
             >
               <input
                 type="radio"
-                name="polaris-reader-level"
+                name="vylos-reader-level"
                 checked={checked}
                 onChange={() => onChange(o.id)}
                 // Visually hidden but kept in DOM flow (parent is position:relative)

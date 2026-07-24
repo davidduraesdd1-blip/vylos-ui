@@ -20,9 +20,7 @@ src/
 ├── styles/
 │   └── tokens.css            ← single source of CSS variables (per-app accents, semantics, layout, type, spacing, motion)
 ├── data/
-│   ├── categories.ts         ← asset-category palette
-│   ├── glossary.ts           ← 30 terms × 3 depths
-│   ├── layers.ts             ← 4-layer composite signal definitions
+│   ├── glossary.ts           ← 31 terms × 3 depths
 │   └── regime.ts             ← regime taxonomy + layer-weight overrides
 ├── primitives/               ← framework-agnostic React components
 │   ├── Num.tsx               ← every number flows through this
@@ -34,16 +32,10 @@ src/
 │   ├── Explainer.tsx         ← voice-pattern callout
 │   ├── ReaderLevel.tsx       ← B/I/A segmented + radio
 │   ├── Eyebrow.tsx
-│   ├── LiveDot.tsx
-│   ├── Tooltip.tsx           ← wraps glossary terms
-│   ├── AppBrand.tsx          ← VYLOS + sub-app name + mini orbit
 │   └── DataSourceStrip.tsx
-├── layout/
-│   ├── AppConfig.ts          ← per-app nav + accent map
-│   └── Sidebar.tsx           ← desktop sidebar
-├── edge/                     ← Polaris Edge-specific components
-├── defi/                     ← VYLOS Yield components (design + richer originals)
-├── tokenization/             ← VYLOS Ground components (design + richer originals)
+├── compliance/
+│   ├── SECDisclaimer.tsx
+│   └── MissingDisclosure.tsx
 └── advisor/                  ← ETF Advisor components
 ```
 
@@ -64,20 +56,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ```tsx
 // app/page.tsx
-import { Sidebar, Card, SignalBadge, Num, Eyebrow } from 'polaris-ui';
+import { Card, SignalBadge, Num, Eyebrow } from 'polaris-ui';
 
 export default function Page() {
   return (
-    <div style={{ display: 'flex' }}>
-      <Sidebar app="defi" activeNav="home" level="intermediate" />
-      <main style={{ flex: 1, padding: 24 }}>
-        <Card>
-          <Eyebrow>Composite signal</Eyebrow>
-          <Num size={48}>+0.42</Num>
-          <SignalBadge verdict="BUY" />
-        </Card>
-      </main>
-    </div>
+    <main style={{ flex: 1, padding: 24 }}>
+      <Card>
+        <Eyebrow>Composite signal</Eyebrow>
+        <Num size={48}>+0.42</Num>
+        <SignalBadge verdict="BUY" />
+      </Card>
+    </main>
   );
 }
 ```
