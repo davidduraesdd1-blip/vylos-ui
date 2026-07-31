@@ -1,16 +1,16 @@
-# polaris-ui
+# vylos-ui
 
 Single-source-of-truth design-system package for all 4 VYLOS web apps:
 
 | App | Path | data-app attribute |
 |---|---|---|
-| VYLOS Signal | `01_Polaris Apps/VYLOS Signal/web` | `polaris-edge` |
-| VYLOS Yield | `01_Polaris Apps/VYLOS Yield/web` | `polaris-defi` |
-| VYLOS Ground | `01_Polaris Apps/VYLOS Ground/web` | `polaris-tokenization` |
-| ETF Advisor | `01_Polaris Apps/etf-advisor-platform/web` | `etf-advisor-platform` |
+| VYLOS Signal | `01_Vylos Apps/VYLOS Signal/web` | `polaris-edge` (CSS hook, unchanged) |
+| VYLOS Yield | `01_Vylos Apps/VYLOS Yield/web` | `polaris-defi` |
+| VYLOS Ground | `01_Vylos Apps/VYLOS Ground/web` | `polaris-tokenization` |
+| ETF Advisor | `01_Vylos Apps/etf-advisor-platform/web` | `etf-advisor-platform` |
 
-Lives at `_System/common/polaris-ui/`. Each web/ app imports via TypeScript path alias
-`polaris-ui` → `../../../../_System/common/polaris-ui/src`.
+Lives at `_System/common/vylos-ui/`. Each web/ app imports via TypeScript path alias
+`vylos-ui` → `../../../../_System/common/vylos-ui/src`.
 
 ## Structure
 
@@ -43,7 +43,7 @@ src/
 
 ```tsx
 // app/layout.tsx
-import 'polaris-ui/styles/tokens.css';
+import 'vylos-ui/styles/tokens.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ```tsx
 // app/page.tsx
-import { Card, SignalBadge, Num, Eyebrow } from 'polaris-ui';
+import { Card, SignalBadge, Num, Eyebrow } from 'vylos-ui';
 
 export default function Page() {
   return (
@@ -78,8 +78,8 @@ export default function Page() {
 {
   "compilerOptions": {
     "paths": {
-      "polaris-ui": ["../../../_System/common/polaris-ui/src"],
-      "polaris-ui/*": ["../../../_System/common/polaris-ui/src/*"]
+      "polaris-ui": ["../../../_System/common/vylos-ui/src"],
+      "polaris-ui/*": ["../../../_System/common/vylos-ui/src/*"]
     }
   }
 }
