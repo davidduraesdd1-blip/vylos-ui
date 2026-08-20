@@ -135,6 +135,28 @@
   --dur-slow:    420ms;
   --dur-breath: 2400ms;
   --dur-tick:    600ms;
+
+  /* ── Mobile shell (Phase 1, Claude Design handoff 2026-08-19) ──
+   * Glass lives on CHROME ONLY (top bars, tab bar, sheet scrim) — data
+   * surfaces stay solid. Values are the handoff's locked tokens. */
+  --m-gutter:             18px;   /* screen gutter; Advisor overrides to 24px */
+  --tab-h:                52px;   /* tab slot height (60px at larger text sizes) */
+  --tab-h-lg:             60px;
+  --tab-tick-w:           22px;   /* active-tab tick: 22×2px accent, above the label */
+  --header-clearance:     100px;  /* content top padding under the glass header */
+  --header-clearance-seg: 144px;  /* …when the header carries a segmented control */
+  --glass-bg:             rgba(10, 10, 15, 0.72);   /* page colour at 72% */
+  --glass-blur:           blur(20px) saturate(1.4);
+  --glass-edge:           inset 0 1px 0 rgba(255,255,255,0.04);
+  --scrim:                rgba(10, 10, 15, 0.72);   /* sheet scrim (pairs with 8px blur) */
+  /* Provenance states (the trust layer): dot colour / label ink / value dim */
+  --prov-current:         #22c55e;
+  --prov-current-ink:     #7fbd9c;
+  --prov-delayed:         #d4a54c;
+  --prov-cached:          #6f7783;
+  --prov-error:           #ef4444;
+  --prov-dim-delayed:     0.72;   /* value opacity while reconnecting */
+  --prov-dim-stale:       0.52;   /* value opacity when cached / errored */
 }
 
 /* ── Per-app accent overrides ── */
@@ -162,6 +184,9 @@
   --text-primary: #e8e9ee; --text-secondary: #9aa0ab; --text-muted: #666875;
   --border: #2e303c; --border-strong: #454854;
   --rail-w: 256px; --topbar-h: 60px; --card-radius: 10px; --card-pad: 24px; --gap: 20px;
+  --m-gutter: 24px;
+  --glass-bg: rgba(12, 13, 18, 0.72);
+  --scrim:    rgba(12, 13, 18, 0.72);
 }
 
 /* ── Light mode swaps ── */
@@ -169,11 +194,24 @@
   --bg-0: #fafafb; --bg-1: #ffffff; --bg-2: #f5f5f7; --bg-3: #e8e9ed;
   --text-primary: #0f1014; --text-secondary: #545660; --text-muted: #8b8d96;
   --border: #e8e9ed; --border-strong: #d1d3d9;
+  --glass-bg: rgba(246, 247, 249, 0.78);
+  --scrim:    rgba(15, 17, 21, 0.35);
 }
 [data-app="etf-advisor-platform"][data-theme="light"] {
   --bg-0: #f6f5f2; --bg-1: #ffffff; --bg-2: #faf9f6; --bg-3: #ebeae6;
   --text-primary: #13151b; --text-secondary: #4a4c56; --text-muted: #7e808a;
   --border: #e4e2dd; --border-strong: #d1cec7;
+  --glass-bg: rgba(251, 251, 252, 0.78);
+}
+
+/* Reduce Transparency: every glass surface becomes the solid page colour and
+ * the header hairline becomes permanent (handled in the shell components,
+ * which read this token instead of hardcoding). */
+@media (prefers-reduced-transparency: reduce) {
+  :root, [data-theme="light"], [data-app="etf-advisor-platform"] {
+    --glass-bg: var(--bg-0);
+    --glass-blur: none;
+  }
 }
 
 /* ── Base ── */
