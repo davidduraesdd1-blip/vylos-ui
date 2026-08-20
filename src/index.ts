@@ -64,3 +64,15 @@ export type { GlossaryEntry, ReaderLevelKey } from './data/glossary';
 
 // ── Per-app sub-packages (preferred path: subpath import, e.g. `polaris-ui/edge`) ──
 // Root barrel re-exports them for convenience too; collisions resolved by namespace.
+
+// ── Mobile shell (Phase 1, Claude Design handoff 2026-08-19) ───────────
+export { TabBar } from './mobile/TabBar';
+export type { TabBarProps, TabItem } from './mobile/TabBar';
+export { GlassHeader } from './mobile/GlassHeader';
+export type { GlassHeaderProps } from './mobile/GlassHeader';
+export { MoreSheet } from './mobile/MoreSheet';
+export type { MoreSheetProps, MoreEntry } from './mobile/MoreSheet';
+export { MobileShell } from './mobile/MobileShell';
+export type { MobileShellProps } from './mobile/MobileShell';
+export { ProvenancePill } from './mobile/ProvenancePill';
+export type { ProvenancePillProps, ProvenanceState } from './mobile/ProvenancePill';
