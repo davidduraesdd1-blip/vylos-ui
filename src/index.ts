@@ -3,11 +3,11 @@
 // prop types + glossary). ~45 zero-consumer export lines and the entire
 // defi/edge/tokenization showcase subpackages were removed (git history has
 // them). advisor/ stays: etf-advisor imports type AdvisorClient via subpath.
-// polaris-ui/src/index.ts
+// vylos-ui/src/index.ts
 // Barrel re-exports for the package's public surface. Apps import from the
-// root ("import { Card } from 'polaris-ui'"); the "exports" map in
+// root ("import { Card } from 'vylos-ui'"); the "exports" map in
 // package.json only exposes ".", "./styles/tokens.css", and "./advisor" —
-// there is no general deep-subpath access (e.g. 'polaris-ui/primitives/Card'
+// there is no general deep-subpath access (e.g. 'vylos-ui/primitives/Card'
 // does not resolve).
 
 // ── Primitives ─────────────────────────────────────────────────────────
@@ -62,7 +62,7 @@ export { GLOSSARY, tooltip as glossaryTooltip } from './data/glossary';
 export type { GlossaryEntry, ReaderLevelKey } from './data/glossary';
 
 
-// ── Per-app sub-packages (preferred path: subpath import, e.g. `polaris-ui/edge`) ──
+// ── Per-app sub-packages (preferred path: subpath import, e.g. `vylos-ui/edge`) ──
 // Root barrel re-exports them for convenience too; collisions resolved by namespace.
 
 // ── Mobile shell (Phase 1, Claude Design handoff 2026-08-19) ───────────

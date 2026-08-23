@@ -78,8 +78,8 @@ export default function Page() {
 {
   "compilerOptions": {
     "paths": {
-      "polaris-ui": ["../../../_System/common/vylos-ui/src"],
-      "polaris-ui/*": ["../../../_System/common/vylos-ui/src/*"]
+      "vylos-ui": ["../../../_System/common/vylos-ui/src"],
+      "vylos-ui/*": ["../../../_System/common/vylos-ui/src/*"]
     }
   }
 }

@@ -9,7 +9,7 @@
  * Isolation: this file does NOT touch the v1 tokens at /colors_and_type.css.
  *
  * Usage:
- *   <html data-app="polaris-edge" data-theme="dark">
+ *   <html data-app="polaris-tokenization" data-theme="dark">   (Ground; Advisor uses etf-advisor-platform)
  *
  *   Per-app:    polaris-edge | polaris-defi | polaris-tokenization | etf-advisor-platform
  *   Per-theme:  dark (default) | light
@@ -160,16 +160,12 @@
 }
 
 /* ── Per-app accent overrides ── */
-[data-app="polaris-edge"] {
-  --accent:      #22d36f;
-  --accent-soft: rgba(34, 211, 111, 0.12);
-  --accent-ink:  #0a0a0f;
-}
-[data-app="polaris-defi"] {
-  --accent:      #1538a8;
-  --accent-soft: rgba(21, 56, 168, 0.18);
-  --accent-ink:  #f8f8fc;
-}
+/* Only apps that actually SET data-app on <html> appear here.
+   CLEANUP 2026-08-23: the "polaris-edge" and "polaris-defi" blocks were
+   removed — neither Signal nor Yield sets data-app at all, so those two
+   selectors could never match. Signal defines the same green (#22d36f)
+   directly in its own globals.css, which is why nobody noticed. If an app
+   starts setting data-app, add its block back here. */
 [data-app="polaris-tokenization"] {
   --accent:      #d4a54c;
   --accent-soft: rgba(212, 165, 76, 0.14);
@@ -241,8 +237,6 @@ html, body {
 .row-focus:focus-visible, button[data-row]:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent); }
 
 /* ── S10 — per-app --accent-soft bumped for light-theme contrast ───────── */
-[data-app="polaris-edge"][data-theme="light"]         { --accent-soft: rgba(34, 211, 111, 0.20); }
-[data-app="polaris-defi"][data-theme="light"]         { --accent-soft: rgba(21, 56, 168, 0.16); }
 [data-app="polaris-tokenization"][data-theme="light"] { --accent-soft: rgba(212, 165, 76, 0.22); }
 [data-app="etf-advisor-platform"][data-theme="light"] { --accent-soft: rgba(15, 166, 138, 0.22); }
 

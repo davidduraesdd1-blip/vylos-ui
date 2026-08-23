@@ -1,4 +1,20 @@
-# polaris-ui
+# vylos-ui
+
+<!-- BEGIN:model-routing-standing-rule -->
+## Model routing (David, 2026-08-21 — standing rule, every project)
+
+Before starting any request or task set, decide the best Claude model for each part and say
+the plan in one line: **Fable** = judgment-heavy (design, verification, tricky debugging,
+anything David reviews directly); **Opus** = long autonomous grinds; **Sonnet** = mechanical
+bulk; **Haiku** = trivial checks. Then execute automatically: route every subagent/sweep/
+background job to its planned model as the task shape changes (standing permission, never
+ask — just say which model took which part). The MAIN session's model cannot be switched by
+Claude: when the work ahead no longer fits it, say "Switch me to [model] now" with one line of
+why, and keep working at reduced burn until David switches or declines; handoff files must
+name the model the next session starts on. All other rules (budget rails, deploy economy,
+verification, honesty) still bind — model routing never overrides them.
+<!-- END:model-routing-standing-rule -->
+
 
 <!-- BEGIN:token-budget-standing-rule -->
 ---
