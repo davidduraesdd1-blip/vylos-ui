@@ -1,4 +1,4 @@
-// polaris-ui/src/mobile/MoreSheet.tsx
+// vylos-ui/src/mobile/MoreSheet.tsx
 // Full-screen "More" sheet — Phase 1 of the Claude Design mobile handoff.
 // One search field filters EVERY destination in the app, including
 // desktop-only ones, which are listed and marked rather than hidden.

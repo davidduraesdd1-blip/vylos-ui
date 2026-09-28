@@ -1,4 +1,4 @@
-// polaris-ui/src/advisor/types.ts
+// vylos-ui/src/advisor/types.ts
 
 export interface AdvisorClient {
   id: string;

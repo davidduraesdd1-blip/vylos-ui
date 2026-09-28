@@ -4,13 +4,17 @@ Single-source-of-truth design-system package for all 4 VYLOS web apps:
 
 | App | Path | data-app attribute |
 |---|---|---|
-| VYLOS Signal | `01_Vylos Apps/VYLOS Signal/web` | `polaris-edge` (CSS hook, unchanged) |
-| VYLOS Yield | `01_Vylos Apps/VYLOS Yield/web` | `polaris-defi` |
-| VYLOS Ground | `01_Vylos Apps/VYLOS Ground/web` | `polaris-tokenization` |
-| ETF Advisor | `01_Vylos Apps/etf-advisor-platform/web` | `etf-advisor-platform` |
+| VYLOS Signal | `vylos-signal-v2/web` | none (defines its accent in its own globals.css) |
+| VYLOS Yield | `vylos-yield` | none (uses the mobile shell only) |
+| VYLOS Ground | `vylos-ground/web` | `vylos-ground` (the legacy pre-rebrand value is still accepted as an alias) |
+| VYLOS Advisor | `vylos-advisor/web` | `etf-advisor-platform` |
 
-Lives at `_System/common/vylos-ui/`. Each web/ app imports via TypeScript path alias
-`vylos-ui` → `../../../../_System/common/vylos-ui/src`.
+Every app pins this package by git tag in its `package.json`, e.g.
+`"vylos-ui": "git+https://github.com/davidduraesdd1-blip/vylos-ui.git#v0.9.0"`.
+A change here reaches an app only after a new `vX.Y.Z` tag is cut and the app bumps its pin.
+
+Lives in its own GitHub repo. Apps install it through the git-tag pin above and import
+from `vylos-ui` (root barrel) or `vylos-ui/advisor`.
 
 ## Structure
 
@@ -47,7 +51,7 @@ import 'vylos-ui/styles/tokens.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-app="polaris-defi" data-theme="dark">
+    <html lang="en" data-app="vylos-ground" data-theme="dark">
       <body>{children}</body>
     </html>
   );
@@ -71,22 +75,12 @@ export default function Page() {
 }
 ```
 
-## Path alias in each web/
+## Tests
 
-```json
-// tsconfig.json
-{
-  "compilerOptions": {
-    "paths": {
-      "vylos-ui": ["../../../_System/common/vylos-ui/src"],
-      "vylos-ui/*": ["../../../_System/common/vylos-ui/src/*"]
-    }
-  }
-}
-```
+`npm test` runs `node --test` (Node 23.6+ strips TypeScript natively). `npm run typecheck` runs `tsc --noEmit`.
 
 ## Lineage
 
-Ported on 2026-05-18 from `00_Inbox/polaris-design-handoff/polaris-app/` (the
+Ported on 2026-05-18 from the pre-rebrand design-handoff repo (the
 Claude-Design hybrid drop). Original lineage from `ui/design_system.py`
 (Streamlit baseline) + the design's fresh JSX prototypes.

@@ -1,4 +1,4 @@
-// polaris-ui/src/advisor/index.ts
+// vylos-ui/src/advisor/index.ts
 // Barrel re-exports for the Advisor sub-package.
 // Scope: foundation primitives + fixtures. Screen-level compositions live in the
 // etf-advisor-platform/web/ app pages (see Phase C4) rather than this shared package,
@@ -25,7 +25,7 @@ export { PerfTable } from './PerfTable';
 export type { PerfTableProps } from './PerfTable';
 
 export { HistoryChart } from './HistoryChart';
-export type { HistoryChartProps } from './HistoryChart';
+export type { HistoryChartProps, HistoryPoint } from './HistoryChart';
 
 export { ForwardProjection } from './ForwardProjection';
 export type { ForwardProjectionProps } from './ForwardProjection';

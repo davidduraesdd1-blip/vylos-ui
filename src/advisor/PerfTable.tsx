@@ -1,4 +1,4 @@
-// polaris-ui/src/advisor/PerfTable.tsx
+// vylos-ui/src/advisor/PerfTable.tsx
 // ETF performance table with Historical / Forward-projection tabs.
 // Ports the design's PerfTable from advisor/app.jsx — driven by ETF_PERF,
 // with a static-blend benchmark footnote and a Monte Carlo forward tab.
@@ -56,7 +56,7 @@ export function PerfTable({ level }: PerfTableProps) {
         >
           {([
             { id: 'hist', label: 'Historical' },
-            { id: 'fwd', label: 'Forward projection (Monte Carlo)' },
+            { id: 'fwd', label: 'Forward projection (illustrative)' },
           ] as { id: Tab; label: string }[]).map((t) => (
             <button
               key={t.id}

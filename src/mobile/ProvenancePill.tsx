@@ -1,4 +1,4 @@
-// polaris-ui/src/mobile/ProvenancePill.tsx
+// vylos-ui/src/mobile/ProvenancePill.tsx
 // The trust layer's four states — Phase 1 of the Claude Design mobile handoff.
 // Every data-bearing surface carries one: current / delayed / cached / error,
 // with a timestamp and the source name. Extends StatusPill's vocabulary

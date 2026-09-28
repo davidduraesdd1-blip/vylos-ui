@@ -1,7 +1,7 @@
-// polaris-ui/src/data/regime.ts
+// vylos-ui/src/data/regime.ts
 // Regime taxonomy + layer-weight overrides per regime.
 // Mirrors composite_signal.py _REGIME_WEIGHTS_BASE + _detect_regime priority.
-// Source of truth: polaris-edge/composite_signal.py (locked 2026-05).
+// Source of truth: VYLOS Signal composite_signal.py (locked 2026-05).
 
 export type RegimeCode = 'CRISIS' | 'TRENDING' | 'RANGING' | 'NORMAL';
 export type RegimeKey = 'CRISIS' | 'TRENDING' | 'RANGING' | 'NEUTRAL';

@@ -1,4 +1,4 @@
-// polaris-ui/src/primitives/RegimeOrbit.tsx
+// vylos-ui/src/primitives/RegimeOrbit.tsx
 // The signature mark. Animates at 2.4s breath when pulse=true.
 // active: 'N' | 'E' | 'S' | 'W' | null — which regime tick is lit.
 //

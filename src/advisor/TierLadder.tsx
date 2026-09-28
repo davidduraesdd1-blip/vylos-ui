@@ -1,4 +1,4 @@
-// polaris-ui/src/advisor/TierLadder.tsx
+// vylos-ui/src/advisor/TierLadder.tsx
 // 5-button risk tier picker with active highlight.
 
 import * as React from 'react';

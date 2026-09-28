@@ -1,4 +1,4 @@
-// polaris-ui/src/advisor/BasketTable.tsx
+// vylos-ui/src/advisor/BasketTable.tsx
 // Compact basket holdings table — ticker, issuer, weight, USD, sigma, correlation.
 
 import * as React from 'react';

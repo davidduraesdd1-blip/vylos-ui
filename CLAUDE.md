@@ -78,3 +78,56 @@ incomplete always beats a burned window.
 
 Full version and monitor (David's machine): `~/.claude/CLAUDE.md` · `node ~/.claude/bin/token-budget.mjs --report`
 <!-- END:token-budget-standing-rule -->
+
+<!-- BEGIN:context-mechanics-standing-rule -->
+## Context mechanics — cache & injection hygiene (standing rule, every project, 2026-09-21)
+
+Complementary to the token-budget rule in this file: that one paces spend against the 5-hour/
+weekly window; this one reduces what gets injected into context per turn, which is what the
+budget rule is pacing against.
+
+1. A user-level PreToolUse Bash output filter is expected (pipe verbose install/build/test output
+   through a `FAIL|ERROR|error:` filter before it's cached). If `/hooks` shows none, say so before
+   running a verbose command. Never install or edit the hook script without David reviewing it
+   line-by-line first — it changes tool-call behavior. Always check exit status; never infer
+   success from empty filtered output.
+2. MCP tool deferral (Claude Code default) already keeps unused tool schemas out of context.
+   Confirm deferral is active before removing any MCP server for token reasons — a custom
+   `ANTHROPIC_BASE_URL`, `ENABLE_TOOL_SEARCH=false`, or an `alwaysLoad` server setting can disable
+   it; a plain `ANTHROPIC_AUTH_TOKEN` does not.
+3. Subagents inherit the session's model unless told otherwise (per-call param → agent frontmatter
+   `model:` → `CLAUDE_CODE_SUBAGENT_MODEL` → inherit). Pass the model on every spawn per the
+   model-routing rule above; any `.claude/agents/*.md` file should pin `model:` in frontmatter.
+   Each subagent also gets its own fresh, short-TTL cache — that's the actual cost of an
+   unnecessary one, not just the model choice.
+4. For anything recurring at an interval longer than the prompt-cache TTL (confirm billing mode —
+   1h on subscription-within-plan, 5min otherwise), use a fresh-session scheduled task
+   (Cowork/Desktop/`create_trigger`) rather than an in-session `/loop` or local `CronCreate` — a
+   loop resends full context every fire and a stale one just burns cache misses. Cancel forgotten
+   loops; don't shorten their interval to "beat" the TTL.
+
+Token-waste audit prompt + full findings: `docs/claude-playbook/transcripts/2026-09-21_sharbel-token-audit-review.md`.
+<!-- END:context-mechanics-standing-rule -->
+
+# Cowork bridge: always on, David out of the loop (David, 2026-09-25, standing rule, all projects)
+Claude Code and Cowork work as ONE team on every Vylos/David project and talk to each other directly
+through `~/Desktop/Vylos/desktop-docs/COWORK-BRIDGE/`, without routing through David:
+`TO-COWORK.md` (Claude Code to Cowork) and `TO-CLAUDE-CODE.md` (Cowork to Claude Code).
+Append only, never rewrite or delete an entry.
+- Entry header: `## YYYY-MM-DD HH:MM MDT | <sender> | OPEN / INFO / DONE` (time from `date`, never
+  guessed), then the ask or result. Results go in files; entries hold paths + one-line summaries.
+- **Notify the other side whenever anything new comes up, changes, is added or is finished** (new data,
+  a new decision from David, a changed plan, a blocker, a result). Do not wait for David to relay it.
+- Read the other side's file at every session start, after every task or batch, and before finishing.
+  Act on its OPEN items that fall in your lane without asking David, within the budget and safety rules.
+- Claude Code also checks the mailbox on a schedule (Desktop scheduled task `vylos-bridge-check`), so
+  new Cowork items get picked up even when no Claude Code session is open.
+- Split by strength: Cowork does what needs eyes or David's logged-in browser (videos, paid sites, chart
+  reading, desktop files). Claude Code does code, data, backtests, repos, Fable gates and `~/.claude`.
+  Each owns the files it creates, never rewrites the other's, never redoes the other's work, and verifies
+  what it uses from the other.
+- Only David decides: money, purchases, sending messages as David, merges that cost Netlify credits,
+  anything irreversible. Either side flags those to David; everything else flows between the two.
+- When waiting on the other side inside a session, use a cheap background file watcher
+  (`until ls <file>; do sleep 120; done`), never a polling loop that re-sends context.
+- Every brief either side writes for the other names this mailbox folder.

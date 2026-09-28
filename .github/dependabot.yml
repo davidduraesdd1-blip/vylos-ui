@@ -1,0 +1,17 @@
+# Added 2026-09-28 (audit slice 00): vylos-ui had no dependency-update coverage.
+# react + react-dom (and their @types) are grouped so they can never be bumped
+# apart (the split-bump trap that broke Yield #182 and Advisor #219).
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      react:
+        patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly

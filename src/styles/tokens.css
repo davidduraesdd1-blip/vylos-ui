@@ -1,5 +1,5 @@
 /* ===========================================================================
- * polaris-app/tokens.css
+ * vylos-ui/src/styles/tokens.css
  *
  * Single source of truth for design tokens in the FRESH VYLOS build.
  * Mirrors the locked production values from ui/design_system.py + extends
@@ -9,9 +9,11 @@
  * Isolation: this file does NOT touch the v1 tokens at /colors_and_type.css.
  *
  * Usage:
- *   <html data-app="polaris-tokenization" data-theme="dark">   (Ground; Advisor uses etf-advisor-platform)
+ *   <html data-app="vylos-ground" data-theme="dark">   (Ground; Advisor uses etf-advisor-platform)
  *
- *   Per-app:    polaris-edge | polaris-defi | polaris-tokenization | etf-advisor-platform
+ *   Per-app:    vylos-ground | etf-advisor-platform   (Signal and Yield set no data-app)
+ *   Ground's pre-rebrand value is still accepted as a legacy alias (see the
+ *   per-app block below) so pinned consumers keep their gold accent.
  *   Per-theme:  dark (default) | light
  *   Per-level:  beginner (default) | intermediate | advanced
  *
@@ -161,11 +163,15 @@
 
 /* ── Per-app accent overrides ── */
 /* Only apps that actually SET data-app on <html> appear here.
-   CLEANUP 2026-08-23: the "polaris-edge" and "polaris-defi" blocks were
+   CLEANUP 2026-08-23: the old Signal and Yield blocks were
    removed — neither Signal nor Yield sets data-app at all, so those two
    selectors could never match. Signal defines the same green (#22d36f)
    directly in its own globals.css, which is why nobody noticed. If an app
-   starts setting data-app, add its block back here. */
+   starts setting data-app, add its block back here.
+   Ground: "vylos-ground" is the current name; the legacy pre-rebrand value
+   stays as an alias because Ground (pinned by tag) still sets it. Drop the
+   legacy selector only after Ground's <html data-app> has switched. */
+[data-app="vylos-ground"],
 [data-app="polaris-tokenization"] {
   --accent:      #d4a54c;
   --accent-soft: rgba(212, 165, 76, 0.14);
@@ -237,6 +243,7 @@ html, body {
 .row-focus:focus-visible, button[data-row]:focus-visible { outline: none; box-shadow: inset 0 0 0 2px var(--accent); }
 
 /* ── S10 — per-app --accent-soft bumped for light-theme contrast ───────── */
+[data-app="vylos-ground"][data-theme="light"],
 [data-app="polaris-tokenization"][data-theme="light"] { --accent-soft: rgba(212, 165, 76, 0.22); }
 [data-app="etf-advisor-platform"][data-theme="light"] { --accent-soft: rgba(15, 166, 138, 0.22); }
 

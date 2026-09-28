@@ -1,4 +1,4 @@
-// polaris-ui/src/primitives/ReaderLevel.tsx
+// vylos-ui/src/primitives/ReaderLevel.tsx
 // Beginner / Intermediate / Advanced — segmented control or radio stack.
 // S4 a11y: proper radiogroup semantics, relative-positioned labels so the
 // visually-hidden native input keeps DOM tab order, aria-checked on the painted
