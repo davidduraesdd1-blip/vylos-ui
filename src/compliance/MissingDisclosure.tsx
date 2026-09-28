@@ -1,4 +1,4 @@
-// polaris-ui/src/compliance/MissingDisclosure.tsx
+// vylos-ui/src/compliance/MissingDisclosure.tsx
 // Dev-visible guard rendered when a SECDisclaimer is missing a required prop, so an
 // under-disclosed hypothetical-performance display fails loudly instead of silently.
 import * as React from 'react';

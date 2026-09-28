@@ -1,4 +1,4 @@
-// polaris-ui/src/primitives/Card.tsx
+// vylos-ui/src/primitives/Card.tsx
 // Base surface primitive. Optional accent border-top for emphasis.
 
 import * as React from 'react';

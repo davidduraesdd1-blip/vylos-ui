@@ -1,4 +1,4 @@
-// polaris-ui/src/compliance/SECDisclaimer.tsx
+// vylos-ui/src/compliance/SECDisclaimer.tsx
 // SEC Marketing Rule (Rule 206(4)-1) disclosure for hypothetical / backtest /
 // forward-yield displays. REQUIRES a named benchmark, multiple horizons, and a
 // methodology link (max drawdown recommended). Missing a required prop renders a

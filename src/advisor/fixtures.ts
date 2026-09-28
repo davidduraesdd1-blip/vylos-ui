@@ -1,4 +1,4 @@
-// polaris-ui/src/advisor/fixtures.ts
+// vylos-ui/src/advisor/fixtures.ts
 // Sample advisor fixtures — CLIENTS, TIERS, BASKET, ETF_PERF, ADV_SOURCES.
 
 import type { AdvisorClient, AdvisorTier, BasketHolding, EtfPerformance } from './types';

@@ -1,4 +1,4 @@
-// polaris-ui/src/mobile/MobileShell.tsx
+// vylos-ui/src/mobile/MobileShell.tsx
 // Composition of the mobile shell — Phase 1 of the Claude Design mobile
 // handoff. Wires GlassHeader + scrolling content + TabBar + MoreSheet:
 //   * pads content by --header-clearance (or the segmented variant),

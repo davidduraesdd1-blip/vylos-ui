@@ -1,6 +1,6 @@
-// polaris-ui/src/data/glossary.ts
+// vylos-ui/src/data/glossary.ts
 // 30 plain-English crypto/DeFi terms × 3 depths.
-// Ported verbatim from polaris-edge/glossary.py — single source of truth.
+// Ported verbatim from VYLOS Signal glossary.py — single source of truth.
 
 export type ReaderLevelKey = 'beginner' | 'intermediate' | 'advanced';
 

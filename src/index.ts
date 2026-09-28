@@ -31,6 +31,11 @@ export type { SignalBadgeProps, BadgeSize } from './primitives/SignalBadge';
 export { StatusPill } from './primitives/StatusPill';
 export type { StatusPillProps, PillStatus } from './primitives/StatusPill';
 
+// DataSourceStrip: live-feed transparency strip (was built but unreachable;
+// exported 2026-09-28 per audit slice 12 so Advisor can render ADV_SOURCES).
+export { DataSourceStrip } from './primitives/DataSourceStrip';
+export type { DataSourceStripProps, DataSource } from './primitives/DataSourceStrip';
+
 export { Explainer } from './primitives/Explainer';
 export type { ExplainerProps, ExplainerKind, ExplainerSize } from './primitives/Explainer';
 

@@ -1,4 +1,4 @@
-// polaris-ui/src/primitives/Num.tsx
+// vylos-ui/src/primitives/Num.tsx
 // Every number in VYLOS flows through this. Tabular nums + JetBrains Mono.
 
 import * as React from 'react';

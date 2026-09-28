@@ -1,4 +1,4 @@
-// polaris-ui/src/primitives/Glyph.tsx
+// vylos-ui/src/primitives/Glyph.tsx
 // Inline-SVG icon library. Ported verbatim from design handoff — these glyphs
 // are part of the VYLOS visual identity, not interchangeable with lucide-react.
 

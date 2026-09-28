@@ -1,4 +1,4 @@
-// polaris-ui/src/primitives/Explainer.tsx
+// vylos-ui/src/primitives/Explainer.tsx
 // Voice-pattern callout: lead + body with border-left accent.
 
 import * as React from 'react';

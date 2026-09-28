@@ -1,4 +1,4 @@
-// polaris-ui/src/mobile/TabBar.tsx
+// vylos-ui/src/mobile/TabBar.tsx
 // Mobile bottom tab bar — Phase 1 of the Claude Design mobile handoff
 // (2026-08-19). Five destinations max, the fifth conventionally "More".
 // Active state is a 22×2px accent tick above the label PLUS weight — never

@@ -1,4 +1,4 @@
-// polaris-ui/src/advisor/KPITile.tsx
+// vylos-ui/src/advisor/KPITile.tsx
 // Generic KPI tile — label / value / sub. Used heavily in advisor screens.
 
 import * as React from 'react';

@@ -1,4 +1,4 @@
-// polaris-ui/src/mobile/GlassHeader.tsx
+// vylos-ui/src/mobile/GlassHeader.tsx
 // Mobile glass top bar — Phase 1 of the Claude Design mobile handoff.
 // Absolutely positioned; content scrolls underneath (consumer pads with
 // --header-clearance, or --header-clearance-seg when `segmented` is set).

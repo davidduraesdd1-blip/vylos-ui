@@ -1,6 +1,6 @@
 name: Version-tag drift check
 
-# MORNING-REVIEW ASK 2026-07-21 (polaris-ui): with git-tag-pinned consumers,
+# MORNING-REVIEW ASK 2026-07-21 (vylos-ui): with git-tag-pinned consumers,
 # an un-cut release (package.json version bumped, no matching vX.Y.Z tag) is
 # invisible — consumers can never adopt it. Fail CI when version and tags
 # drift so the release gets cut (or the bump reverted) same-day.

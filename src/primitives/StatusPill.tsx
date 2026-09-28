@@ -1,4 +1,4 @@
-// polaris-ui/src/primitives/StatusPill.tsx
+// vylos-ui/src/primitives/StatusPill.tsx
 // live / cached / down data-source pill.
 // a11y (WCAG 1.4.1 / §8): status is conveyed by SHAPE (▲ live / ■ cached / ▼ down)
 // AND a text word — never colour or animation alone. The dot used to be the only

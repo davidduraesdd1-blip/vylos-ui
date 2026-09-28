@@ -1,4 +1,4 @@
-// polaris-ui/src/primitives/DataSourceStrip.tsx
+// vylos-ui/src/primitives/DataSourceStrip.tsx
 // Transparency strip showing which live data feeds are up.
 
 import * as React from 'react';

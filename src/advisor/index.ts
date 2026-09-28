@@ -1,4 +1,4 @@
-// polaris-ui/src/advisor/index.ts
+// vylos-ui/src/advisor/index.ts
 // Barrel re-exports for the Advisor sub-package.
 // Scope: foundation primitives + fixtures. Screen-level compositions live in the
 // etf-advisor-platform/web/ app pages (see Phase C4) rather than this shared package,

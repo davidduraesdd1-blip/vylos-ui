@@ -1,4 +1,4 @@
-// polaris-ui/src/advisor/ClientRow.tsx
+// vylos-ui/src/advisor/ClientRow.tsx
 // Row in the advisor's client roster.
 
 import * as React from 'react';

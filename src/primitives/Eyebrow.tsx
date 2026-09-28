@@ -1,4 +1,4 @@
-// polaris-ui/src/primitives/Eyebrow.tsx
+// vylos-ui/src/primitives/Eyebrow.tsx
 // Small uppercase label used above headings / KPI tiles.
 
 import * as React from 'react';
