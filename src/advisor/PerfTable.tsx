@@ -56,7 +56,7 @@ export function PerfTable({ level }: PerfTableProps) {
         >
           {([
             { id: 'hist', label: 'Historical' },
-            { id: 'fwd', label: 'Forward projection (Monte Carlo)' },
+            { id: 'fwd', label: 'Forward projection (illustrative)' },
           ] as { id: Tab; label: string }[]).map((t) => (
             <button
               key={t.id}

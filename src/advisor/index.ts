@@ -25,7 +25,7 @@ export { PerfTable } from './PerfTable';
 export type { PerfTableProps } from './PerfTable';
 
 export { HistoryChart } from './HistoryChart';
-export type { HistoryChartProps } from './HistoryChart';
+export type { HistoryChartProps, HistoryPoint } from './HistoryChart';
 
 export { ForwardProjection } from './ForwardProjection';
 export type { ForwardProjectionProps } from './ForwardProjection';
